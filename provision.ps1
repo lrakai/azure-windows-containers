@@ -1,9 +1,10 @@
 function Set-LabArtifacts {
     # Use the temporary drive D: which is an SSD for A1 V2 instances
-    Remove-Item D:\* -ErrorAction SilentlyContinue
+    Remove-Item D:\* -Confirm:$false -Force -Recurse -ErrorAction SilentlyContinue
     Invoke-WebRequest -Uri "https://github.com/cloudacademy/docker-windows-post-deploy/archive/master.zip" -OutFile D:\master.zip
     Expand-Archive -Path D:\master.zip -DestinationPath D:\
-    Remove-Item D:\master.zip,D:\provision.ps1
+    Move-Item D:\*-master\* D:\
+    Remove-Item D:\master.zip, D:\provision.ps1, D:\*-master
 }
 
 function Disable-InternetExplorerESC {
