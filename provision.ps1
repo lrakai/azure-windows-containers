@@ -1,7 +1,7 @@
 function Set-LabArtifacts {
     # Use the temporary drive D: which is an SSD for A1 V2 instances
     Remove-Item D:\* -ErrorAction SilentlyContinue
-    Invoke-WebRequest -Uri "https://github.com/lrakai/gate-sizing/archive/master.zip" -OutFile D:\master.zip
+    Invoke-WebRequest -Uri "https://github.com/cloudacademy/docker-windows-post-deploy/master.zip" -OutFile D:\master.zip
     Expand-Archive -Path D:\master.zip -DestinationPath D:\
     Remove-Item D:\master.zip,D:\provision.ps1
 }
