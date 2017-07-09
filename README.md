@@ -14,4 +14,10 @@ then issue
 New-AzureRmResourceGroup -Name Dockering -Location "Central US"
 New-AzureRmResourceGroupDeployment -Name WindowsContainers -ResourceGroupName Dockering -TemplateFile .\arm-template.json
 ```
+Or by using the one-click deploy button below:
+Alternatively, you can perform a one-click deploy with the following button:
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flrakai%2Fazure-windows-containers%2Fmaster%2Finfrastructure%2Farm-template.json">
+    <img src="https://camo.githubusercontent.com/9285dd3998997a0835869065bb15e5d500475034/687474703a2f2f617a7572656465706c6f792e6e65742f6465706c6f79627574746f6e2e706e67" data-canonical-src="http://azuredeploy.net/deploybutton.png" style="max-width:100%;">
+</a>
+
 Connect to the VM and get containerizing! The artifacts are loaded onto the temporary D: drive to exploit the SSD of the Standard A1 V2 VM type.
