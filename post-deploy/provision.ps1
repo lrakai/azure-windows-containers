@@ -2,6 +2,7 @@ function Set-LabArtifacts {
     # Use the temporary drive D: which is an SSD for A1 V2 instances
     Remove-Item D:\* -Confirm:$false -Force -Recurse -ErrorAction SilentlyContinue
     $ProgressPreference = 'SilentlyContinue' # Ignore progress updates (100X speedup)
+    [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls" # GitHub only supports tls 1.2 now (PS use 1.0 by default)
     Invoke-WebRequest -Uri "https://github.com/lrakai/azure-windows-containers/archive/master.zip" -OutFile D:\master.zip
     Expand-Archive -Path D:\master.zip -DestinationPath D:\
     Move-Item D:\*-master\post-deploy\* D:\
